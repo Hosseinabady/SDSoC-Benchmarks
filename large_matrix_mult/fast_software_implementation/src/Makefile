@@ -1,0 +1,2 @@
+mm: matrix_mult_openmp_neon.c  matrix_mult.h
+	gcc -O2  -std=gnu9x  -mcpu=cortex-a9 -mfpu=neon -ftree-vectorize -mvectorize-with-neon-quad -mfloat-abi=hard -ffast-math -fopenmp  -lm matrix_mult_openmp_neon.c -o matrix_mult_openmp_neon

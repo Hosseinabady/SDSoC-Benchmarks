@@ -1,0 +1,13 @@
+ How to compile
+
+
+
+g++ -o spmvf  O3 spmvf_tb.cpp spmvf_multi_thread.cpp -fopenmp -pthread
+
+export OMP_NUM_THREADS=1
+or
+export OMP_NUM_THREADS=2
+or
+export OMP_NUM_THREADS=3
+or
+export OMP_NUM_THREADS=4

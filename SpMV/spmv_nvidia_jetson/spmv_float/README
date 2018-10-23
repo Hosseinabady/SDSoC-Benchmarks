@@ -1,0 +1,4 @@
+ How to compile
+nvcc -o spmv-float -O3 spmv.c utilities.c  -lcusparse jetson_tx2_power.c measurement_threads.c monitoring.c --compiler-options='-Wall -lpthread'
+
+
