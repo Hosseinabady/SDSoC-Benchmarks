@@ -1,0 +1,2 @@
+This folder contains the Sparse Matrix Vector multiplication (SpMV) implemented by Xilinx SDSoC for running on ZynqMPSoC.
+The 
