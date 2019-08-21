@@ -1,0 +1,2 @@
+all:
+	nvcc -o spmv-float -O3 spmv.c utilities.c jtx1pow.c jtx1rate.c measurement_threads.c monitoring.c -lcusparse
