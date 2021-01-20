@@ -82,48 +82,48 @@ u32 read_mtx_spmm(
 				std::cout << "row_size = " <<  *row_size << " col_size = " << *col_size << " nnz = " << *nnz << std::endl;
 				printf("read_mtx_spmm: check point 3\n");
 
-//				{
-//					array_values = (DATA_TYPE*)malloc((*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)) * sizeof(DATA_TYPE));
-//					if (!array_values) {
-//						std::cout << "unable to allocate memory array_values" << std::endl;
-//						exit(1);
-//					}
-//
-//					array_colIndices = (u32*)malloc((*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)) * sizeof(u32));
-//					if (!array_colIndices) {
-//						std::cout << "unable to allocate memory array_colIndices" << std::endl;
-//						exit(1);
-//					}
-//
-//					for (int i = 0; i < (*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)); i++) {
-//							array_values[i] = 0;
-//							array_colIndices[i] = 0;
-//					}
-//
-//					array_rowPtr = (u32*)malloc((*row_size + 1) * sizeof(u32));
-//					if (!array_rowPtr) {
-//						std::cout << "unable to allocate memory array_rowPtr" << std::endl;
-//						exit(1);
-//					}
-//
-//					array_x = (DATA_TYPE*)malloc(*col_size * no_vector * sizeof(DATA_TYPE));
-//					if (!array_x) {
-//						std::cout << "unable to allocate memory array_x" << std::endl;
-//						exit(1);
-//					}
-//
-//					array_y = (DATA_TYPE_OUT*)malloc(*row_size * no_vector * sizeof(DATA_TYPE_OUT));
-//					if (!array_y) {
-//						std::cout << "unable to allocate memory array_y" << std::endl;
-//						exit(1);
-//					}
-//
-//					array_y_golden = (DATA_TYPE_OUT*)malloc(*row_size * no_vector * sizeof(DATA_TYPE_OUT));
-//					if (!array_y_golden) {
-//						std::cout << "unable to allocate memory array_y_golden" << std::endl;
-//						exit(1);
-//					}
-//				}
+				{
+					array_values = (DATA_TYPE*)malloc((*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)) * sizeof(DATA_TYPE));
+					if (!array_values) {
+						std::cout << "unable to allocate memory array_values" << std::endl;
+						exit(1);
+					}
+
+					array_colIndices = (u32*)malloc((*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)) * sizeof(u32));
+					if (!array_colIndices) {
+						std::cout << "unable to allocate memory array_colIndices" << std::endl;
+						exit(1);
+					}
+
+					for (int i = 0; i < (*nnz+ (NO_THREAD-(*nnz)%NO_THREAD)); i++) {
+							array_values[i] = 0;
+							array_colIndices[i] = 0;
+					}
+
+					array_rowPtr = (u32*)malloc((*row_size + 1) * sizeof(u32));
+					if (!array_rowPtr) {
+						std::cout << "unable to allocate memory array_rowPtr" << std::endl;
+						exit(1);
+					}
+
+					array_x = (DATA_TYPE*)malloc(*col_size * no_vector * sizeof(DATA_TYPE));
+					if (!array_x) {
+						std::cout << "unable to allocate memory array_x" << std::endl;
+						exit(1);
+					}
+
+					array_y = (DATA_TYPE_OUT*)malloc(*row_size * no_vector * sizeof(DATA_TYPE_OUT));
+					if (!array_y) {
+						std::cout << "unable to allocate memory array_y" << std::endl;
+						exit(1);
+					}
+
+					array_y_golden = (DATA_TYPE_OUT*)malloc(*row_size * no_vector * sizeof(DATA_TYPE_OUT));
+					if (!array_y_golden) {
+						std::cout << "unable to allocate memory array_y_golden" << std::endl;
+						exit(1);
+					}
+				}
 
 				u32 line_number = 0;
 				line[0]='\0';
@@ -204,41 +204,7 @@ int main(int argc, char** argv) {
 
 
 
-	array_values = (DATA_TYPE*)malloc((NNZ+ (NO_THREAD-(NNZ)%NO_THREAD)) * sizeof(DATA_TYPE));
-	if (!array_values) {
-		std::cout << "unable to allocate memory array_values" << std::endl;
-		exit(1);
-	}
 
-	array_colIndices = (u32*)malloc((NNZ+ (NO_THREAD-(NNZ)%NO_THREAD)) * sizeof(u32));
-	if (!array_colIndices) {
-		std::cout << "unable to allocate memory array_colIndices" << std::endl;
-		exit(1);
-	}
-
-	array_rowPtr = (u32*)malloc((N + 1) * sizeof(u32));
-	if (!array_rowPtr) {
-		std::cout << "unable to allocate memory array_rowPtr" << std::endl;
-		exit(1);
-	}
-
-	array_x = (DATA_TYPE*)malloc(M * P * sizeof(DATA_TYPE));
-	if (!array_x) {
-		std::cout << "unable to allocate memory array_x" << std::endl;
-		exit(1);
-	}
-
-	array_y = (DATA_TYPE_OUT*)malloc(N * P * sizeof(DATA_TYPE_OUT));
-	if (!array_y) {
-		std::cout << "unable to allocate memory array_y" << std::endl;
-		exit(1);
-	}
-
-	array_y_golden = (DATA_TYPE_OUT*)malloc(N * P * sizeof(DATA_TYPE_OUT));
-	if (!array_y_golden) {
-		std::cout << "unable to allocate memory array_y_golden" << std::endl;
-		exit(1);
-	}
 
 
 	read_mtx_spmm(&row_size, &col_size, &nnz, argv[1]);
